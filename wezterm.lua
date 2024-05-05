@@ -12,8 +12,8 @@ local assets = wezterm.config_dir .. "/assets"
 
 local config = {
   macos_window_background_blur = 30,
-  enable_tab_bar = false,
-  window_decorations = "RESIZE",
+  enable_tab_bar = true,
+  window_decorations = "INTEGRATED_BUTTONS",
   window_close_confirmation = "NeverPrompt",
   native_macos_fullscreen_mode = true,
   window_padding = {
