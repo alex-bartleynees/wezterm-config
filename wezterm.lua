@@ -1,6 +1,4 @@
--- configure wezterm to use the ~/.config/dotfiles directory for shared lua modules
-local dotfiles = os.getenv("HOME") .. "/.config/dotfiles"
-package.path = package.path .. ";" .. dotfiles .. "/?.lua;" .. dotfiles .. "/?/?.lua;" .. dotfiles .. "/?/init.lua"
+
 
 local h = require("utils.helpers")
 local b = require("utils.background")
@@ -12,15 +10,19 @@ local assets = wezterm.config_dir .. "/assets"
 
 local config = {
   macos_window_background_blur = 30,
-  enable_tab_bar = false,
-  window_decorations = "RESIZE",
+  enable_tab_bar = true,
+  window_decorations = "INTEGRATED_BUTTONS",
   window_close_confirmation = "NeverPrompt",
   native_macos_fullscreen_mode = true,
+  default_domain = 'WSL:Ubuntu',
   window_padding = {
     left = 0,
     right = 0,
     top = 0,
     bottom = 0,
+  },
+  window_frame = {
+    active_titlebar_bg = '#000',
   },
 
   -- font config

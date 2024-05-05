@@ -1,12 +1,6 @@
-local home = os.getenv("HOME")
 local util = require("base.util")
 local theme = require("base.theme")
 
-local _, config = pcall(dofile, home .. "/dotfiles.lua")
-
-if type(config) ~= "table" then
-  config = {}
-end
 
 -- the purpose of this file is to allow for an out-of-git way to set customized configuration for aesthetic things
 -- like fonts, themes, etc.
