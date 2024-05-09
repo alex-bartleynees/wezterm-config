@@ -10,11 +10,11 @@ local assets = wezterm.config_dir .. "/assets"
 
 local config = {
   macos_window_background_blur = 30,
-  enable_tab_bar = true,
-  window_decorations = "INTEGRATED_BUTTONS",
+  enable_tab_bar = false,
+  window_decorations = "RESIZE",
   window_close_confirmation = "NeverPrompt",
   native_macos_fullscreen_mode = true,
-  default_domain = 'WSL:Ubuntu',
+  default_domain = 'WSL:Ubuntu-20.04',
   window_padding = {
     left = 0,
     right = 0,
@@ -58,7 +58,7 @@ if h.is_dark then
     table.insert(config.background, 1, b.get_random_wallpaper(custom_config.wallpaper_dir .. "/*.{png,jpg,jpeg}"))
   end
 else
-  config.color_scheme = "'JetBrains Mono'"
+  config.color_scheme = "Catppuccin Latte"
   config.window_background_opacity = 1
   config.set_environment_variables = {
     THEME_FLAVOUR = "latte",
