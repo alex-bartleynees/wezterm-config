@@ -41,6 +41,15 @@ local config = {
   -- keys config
   send_composed_key_when_left_alt_is_pressed = true,
   send_composed_key_when_right_alt_is_pressed = false,
+
+  launch_menu = {
+    {
+      label = "pwsh",
+      args = { os.getenv("SystemRoot") .. "\\System32\\WindowsPowerShell\\v1.0\\powershell.exe", "-nologo" },
+      domain = { DomainName = "local" },
+      cwd = "D:\\Dev",
+   }
+  }
 }
 
 if h.is_dark then
