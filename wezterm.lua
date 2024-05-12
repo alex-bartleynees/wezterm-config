@@ -40,7 +40,7 @@ local config = {
 }
 
 
-  config.color_scheme = "Monokai Dark (Gogh)"
+  config.color_scheme = 'Molokai (Gogh)'
   config.window_background_opacity = 1
 
 
