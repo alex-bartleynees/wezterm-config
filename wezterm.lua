@@ -1,12 +1,4 @@
-
-
-local h = require("utils.helpers")
-local b = require("utils.background")
 local wezterm = require("wezterm")
-local custom_config = require("base.config")
-
-local theme = custom_config.theme or b.get_default_theme()
-local assets = wezterm.config_dir .. "/assets"
 
 local config = {
   macos_window_background_blur = 30,
@@ -14,7 +6,7 @@ local config = {
   window_decorations = "RESIZE",
   window_close_confirmation = "NeverPrompt",
   native_macos_fullscreen_mode = true,
-  default_domain = 'WSL:Ubuntu-20.04',
+  default_domain = 'WSL:Ubuntu',
   window_padding = {
     left = 0,
     right = 0,
@@ -26,16 +18,11 @@ local config = {
   },
 
   -- font config
-  font = wezterm.font(custom_config.font, { weight = "Regular" }),
-  font_rules = {
-    {
-      italic = true,
-      font = wezterm.font(custom_config.italic_font, { weight = "Medium" }),
-    },
-  },
-  harfbuzz_features = { "calt", "dlig", "clig=1", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" },
-  font_size = 16,
-  line_height = 1.1,
+  font = wezterm.font({ weight = "Regular",  family = 'JetBrains Mono'}),
+  
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0'  },
+  font_size = 14,
+  line_height = 1,
   adjust_window_size_when_changing_font_size = false,
 
   -- keys config
@@ -52,29 +39,9 @@ local config = {
   }
 }
 
-if h.is_dark then
-  config.color_scheme = theme
-  config.set_environment_variables = {
-    THEME_FLAVOUR = "mocha",
-  }
-  config.background = {
-    -- custom_config.wallpaper_dir and b.get_random_wallpaper(custom_config.wallpaper_dir .. "/*.{png,jpg,jpeg}") or {},
-    -- b.get_random_animation(assets .. "/*.gif"),
-    b.get_background(),
-  }
 
-  if custom_config["wallpaper_dir"] ~= nil then
-    table.insert(config.background, 1, b.get_random_wallpaper(custom_config.wallpaper_dir .. "/*.{png,jpg,jpeg}"))
-  end
-else
-  config.color_scheme = "Catppuccin Latte"
+  config.color_scheme = "Monokai Dark (Gogh)"
   config.window_background_opacity = 1
-  config.set_environment_variables = {
-    THEME_FLAVOUR = "latte",
-  }
-  config.background = {
-    b.get_background(),
-  }
-end
+
 
 return config
