@@ -33,9 +33,9 @@ local config = {
       font = wezterm.font(custom_config.italic_font, { weight = "Medium" }),
     },
   },
-  harfbuzz_features = { "calt", "dlig", "clig=1", "ss01", "ss02", "ss03", "ss04", "ss05", "ss06", "ss07", "ss08" },
-  font_size = 16,
-  line_height = 1.1,
+  harfbuzz_features = { 'calt=0', 'clig=0', 'liga=0' },
+  font_size = 14,
+  line_height = 1,
   adjust_window_size_when_changing_font_size = false,
 
   -- keys config
